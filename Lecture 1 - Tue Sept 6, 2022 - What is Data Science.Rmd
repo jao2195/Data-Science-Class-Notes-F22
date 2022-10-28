@@ -1,0 +1,148 @@
+---
+title: "Lecture 1 - Tue Sept 6, 2022 - What is Data Science"
+author: "Jennifer Osei (jao2195)"
+date: "2022-10-28"
+output: html_document
+---
+
+
+#What is Data Science 
+#Data Science is Pretty New
+A Google Search for "Data Science" Trends
+
+```{r}
+# Insert the plot
+```
+
+Back in 2004,2010, 2012, 2014; Data Science did not exisit.
+
+Courses 
+Degree Programs 
+MS
+PHDs very quickly
+
+# A Data Science Anology 
+Two things happening at the same time
+1910 - Transportation - First flight occurred and was only available to 2 people for long time. 
+1910 - Transportation - Model T _ Was also rolling of the assembly line ; revolutionizing how people get around. 
+AI - Artifical Intelegence - Part of Data Science that has revolutionize Data Science; Makes it possible to work with data in a way that great. 
+
+#Some Not so Great Definitions
+
+
+#Mabe Pictures Will Help 
+In 2014-2015 Drew Conway may have put something on Twitter 
+Venn Diagram - Hacking Skills / Math or Statistics ? Substantive Expertise  = Data Scientist 
+
+Image 2 - Hard to define Data Science image ; Combination of a bunch of other things 
+
+
+#Why There Definitions are Bad
+
+Data Science is a combination of 40 skills " is unrealistic
+Data Scientist - Grew very fast and was a combination of skills that was useful.
+You can be a Data Scientist - Many Data Scientist have Blind Spots 1) that knows enough about Public Health and a OK coder to be a Data Scientist or 
+2) Proficent Coder and just enough about Public Health = Yay Data Scientist
+
+#Why These Definitions are Good 
+
+Data Science is Interdisplinary 
+- You do need a bredth of skills 
+- Need a cuiosity and engaged mindset - Care about what the people you are working with care about. 
+
+#For The Purpose of This Class 
+
+Data science is the study of formulating and rigourously answering questions and using data-centric process that emphisis clarity, repoducibility, effective communication, and ethical practices. 
+-Downstream implication of your actions
+
+- How to start with and Excel document and form a fullyt reproducible analysis 
+-
+#ISI 2017 Conference 
+Video - Hadley Wickham - Talk - 
+- What is the Point of Data Science? Arent we already Data Scientist?
+- Half the room was happy half was mad 
+- A data Scientist is a Statistion that is usful 
+- Then the room fliped and those that we happy wer mad and those that were mad before were happy. 
+
+#What Made Data Science Happen ?
+-Data Science emerged in Parallel to at least 6 broad trends 
+-Big Data 
+-Emphasis on Prediction 
+-Reporducability crisis in science 
+  People before would publish their research and no body would have the opportunity to check; I told you my code, by data, my p values and that was the end of that. 
+  Increasingly recognized that it was not ok to not share your work, especially if it impacted people. That people who want to understand what you did should be able to reproduce what you did. 
+-Interdisplanary Research
+-Diversity equity and inclusion 
+  R Studio Conference - Interdispenary work - more diverse
+-Everything should be on the internet
+  If you are going to work on something, put it on the internet for others to see. 
+
+
+#Connotation >> Definition 
+
+# Public Health is the Important Part 
+-How a Study is Designed 
+-Sampling Process 
+-Measurement Process 
+-Desire vs Ability to Infer Causation 
+-Cross-Disciplinary Colaboration 
+-Engagement with Data Ethics 
+-Public Disseminiation and Dialog 
+
+#How to Learn Data Science 
+-Build a Broad Knowledge Base 
+-Dont be embarrased by what you dont know 
+- Corrollary - Dont be a jerk to people who don't know what you know # BE NICE SHARE WHAT YOU KNOW 
+- Questions Well and Keep Learning 
+
+
+# Real Talk About AI (as part of Data Science) 
+
+
+#Reproducabilty
+-One concrete emphasis of Data Science is Reproducability 
+-Given the same data and the same dode, ANYONE should be able to produce the same results 
+--Code is an iportant means of communication 
+-New tools engourage reporducability, but the concept is not platform-dependent 
+
+#Sharing Code 
+-Openness is valuable -- identify error early and fix them quickly (its ok, if make mistake and move on)
+-Try to think of sharing code as a gesture of confidence and humilty
+  -You have done your best, and you hould fell good about that 
+  -Everyone makes mistakes sometimes, when you do, thats fine - fix it and move on 
+-Lack of transparancy can reflecta lot of things 
+-Of these, arrogance is the most dangerous.
+
+
+#Choosing Data Science Tools 
+-May goal is to make a pit of success 
+-- If you have use the tools ( you should be falling into reproducability like gravity )
+
+#Time to Code !!
+
+1) Download R 
+2) Download R Studio 
+3) Go to course website www.p8105.com > Schedule > Tues Sept 6 > What is Data Science Hyperlink > Example Code Copy Below:
+
+
+```{r}
+
+#Load in data from course website
+
+library(tidyverse)
+
+weather_df = 
+  rnoaa::meteo_pull_monitors(
+    c("USW00094728", "USC00519397", "USS0023B17S"),
+    var = c("PRCP", "TMIN", "TMAX"), 
+    date_min = "2017-01-01",
+    date_max = "2017-12-31") %>%
+  mutate(
+    name = recode(
+      id, 
+      USW00094728 = "CentralPark_NY", 
+      USC00519397 = "Waikiki_HA",
+      USS0023B17S = "Waterhole_WA"),
+    tmin = tmin / 10,
+    tmax = tmax / 10) %>%
+  relocate(name)
